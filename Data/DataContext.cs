@@ -9,7 +9,7 @@ namespace App.Data
 
         }
 
-        public DbSet<Models.Task> Task { get; set; }
+        public DbSet<Models.Task> Tasks { get; set; }
     
         // protected override void OnModelCreating(ModelBuilder modelBuilder)
         // {
