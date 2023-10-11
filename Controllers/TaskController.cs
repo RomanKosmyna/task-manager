@@ -41,5 +41,21 @@ namespace App.Controllers
 
             return CreatedAtAction(nameof(GetTaskById), new { id = task.Id }, task);
         }
+
+        [HttpDelete("DeleteTask{id}")]
+        public async Task<IActionResult> DeleteTask(int id)
+        {
+            var task = _context.Tasks.Find(id);
+
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            _context.Tasks.Remove(task);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
